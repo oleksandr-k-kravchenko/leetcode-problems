@@ -5,8 +5,8 @@ Time complexity: O(n)
 Space complexity: O(n).
 
 Result:
-Runtime: 68 ms
-Memory: 51.42 MB
+Runtime: 66 ms
+Memory: 51.45 MB
 */
 
 /**
@@ -14,16 +14,15 @@ Memory: 51.42 MB
  * @param {number} target
  * @return {number[]}
  */
-
 var twoSum = function (nums, target) {
   const map = new Map();
-  let length = nums.length;
-  for (let i = 0; i < length; i++) {
+  let i = nums.length;
+  while (i--) {
     const complement = target - nums[i];
     if (map.has(complement)) {
       return [map.get(complement), i];
     }
     map.set(nums[i], i);
-
   }
 };
+
