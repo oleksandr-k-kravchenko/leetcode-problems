@@ -5,8 +5,8 @@ Time complexity: O(n)
 Space complexity: O(1).
 
 Result:
-Runtime: 66 ms
-Memory: 56.78 MB
+Runtime: 63 ms
+Memory: 56.58 MB
  */
 
 /**
@@ -14,9 +14,8 @@ Memory: 56.78 MB
  * @return {number}
  */
 var maxArea = function(height) {
-  const length = height.length;
-  let res = 0, left = 0, right = length - 1, newRes = 0;
-  while (left !== right) {
+  let res = 0, left = 0, right = height.length - 1, newRes = 0;
+  while (left < right) {
     if (height[right] > height[left]) {
       newRes = (right - left) * height[left];
       left++;
@@ -24,9 +23,7 @@ var maxArea = function(height) {
       newRes = (right - left) * height[right];
       right--;
     }
-    if (newRes > res) {
-      res = newRes;
-    }
+    res = Math.max(res, newRes);
   }
   return res;
 };
